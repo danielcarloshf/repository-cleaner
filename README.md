@@ -9,7 +9,7 @@ selected to save the cleaned repository.
 
 ## Contact
 
-[Daniel Carlos Hovadick Félix](mailto://dfelix@dcc.ufmg.br)
+Daniel Carlos Hovadick Félix: [dfelix@dcc.ufmg.br](mailto://dfelix@dcc.ufmg.br)
 
 ## Dependencies
 
