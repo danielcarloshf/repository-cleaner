@@ -9,13 +9,14 @@ module Search
     def Search.find_repositories(lang)
         
         url = 'https://api.github.com/search/repositories?q=fork:false+language:'+ lang \
-            + '&sort=stars&order=asc&page=1&per_page=2'
+            + '&sort=stars&order=desc'
             
         response = Curl::Easy.http_get(url) do |curl|
             curl.headers['User-Agent'] = 'aserg.labsoft.dcc.ufmg.br'
             curl.headers['Accept'] = 'application/json'
             curl.headers['Content-Type'] = 'application/json'
             curl.headers['Api-Version'] = '2.2'
+            curl.ssl_verify_peer = false
         end
         repositories = Hash.new
         result = JSON.parse(response.body)
