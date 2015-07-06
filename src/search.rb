@@ -9,7 +9,7 @@ module Search
     def Search.find_repositories(lang)
         
         url = 'https://api.github.com/search/repositories?q=fork:false+language:'+ lang \
-            + '&sort=stars&order=desc'
+            + '+stars:>=1000&sort=stars&order=desc&per_page=1500'
             
         response = Curl::Easy.http_get(url) do |curl|
             curl.headers['User-Agent'] = 'aserg.labsoft.dcc.ufmg.br'
