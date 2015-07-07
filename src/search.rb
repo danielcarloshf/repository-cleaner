@@ -22,12 +22,12 @@ module Search
         
         result = JSON.parse(response.body)
         total = result['total_count'].to_i
-        puts "{#total} repositories found."
+        puts "#{total} repositories found."
         num_pages = (total/10.0).ceil
         
         (1..num_pages).each do |page|
             url = 'https://api.github.com/search/repositories?q=fork:false+language:'+ lang \
-                + '+stars:>=1000&sort=stars&order=desc&page='+ page +'&per_page=10'
+                + '+stars:>=1000&sort=stars&order=desc&page='+ page.to_s +'&per_page=10'
                 
             response = Curl::Easy.http_get(url) do |curl|
                 curl.headers['User-Agent'] = 'aserg.labsoft.dcc.ufmg.br'
