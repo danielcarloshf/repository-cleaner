@@ -21,7 +21,9 @@ module Search
         end
         
         result = JSON.parse(response.body)
-        num_pages = ((result['total_count'].to_i)/10.0).ceil
+        total = result['total_count'].to_i
+        puts "{#total} repositories found."
+        num_pages = (total/10.0).ceil
         
         (1..num_pages).each do |page|
             url = 'https://api.github.com/search/repositories?q=fork:false+language:'+ lang \
